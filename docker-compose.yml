@@ -31,6 +31,7 @@ services:
       - nc_data:/var/www/html
       - ./setup/enable-office.sh:/docker-entrypoint-hooks.d/post-installation/enable-office.sh:ro,z
       - ../../eurooffice-nextcloud:/var/www/html/custom_apps/eurooffice:ro,z
+      - ./servername.conf:/etc/apache2/conf-enabled/servername.conf:ro
     environment:
       # 10.0.2.2 = Android emulator's alias for host. Mobile/LAN IPs are
       # applied post-boot by `make refresh-urls` so the container env stays
