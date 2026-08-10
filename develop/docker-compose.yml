@@ -17,7 +17,7 @@ services:
     environment:
       ALLOW_PRIVATE_IP_ADDRESS: true
       USE_UNAUTHORIZED_STORAGE: true
-      JWT_SECRET: ${EO_JWT_SECRET:-euro-office-dev-jwt-secret-key-2026}
+      JWT_SECRET: WJqjPOXVmYqE0inw0elN219pt6OK6nvpmPqMRN1J3qo
       THEME: euro-office
     volumes:
       - ../:/develop:z # mounts deployed files to application
@@ -47,7 +47,7 @@ services:
     environment:
       ALLOW_PRIVATE_IP_ADDRESS: true
       USE_UNAUTHORIZED_STORAGE: true
-      JWT_SECRET: ${EO_JWT_SECRET:-euro-office-dev-jwt-secret-key-2026}
+      JWT_SECRET: WJqjPOXVmYqE0inw0elN219pt6OK6nvpmPqMRN1J3qo
 
 volumes:
   nc_data:
