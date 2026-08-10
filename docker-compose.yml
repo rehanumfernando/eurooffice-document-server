@@ -13,7 +13,7 @@ services:
     #    BUILD_ROOT: "/package"
     container_name: eo
     ports:
-      - "8080:80"
+      - "8090:80"
     environment:
       ALLOW_PRIVATE_IP_ADDRESS: true
       USE_UNAUTHORIZED_STORAGE: true
