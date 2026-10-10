@@ -22,6 +22,9 @@ services:
     volumes:
       - ../:/develop:z # mounts deployed files to application
       - ./setup/Makefile:/Makefile:z # mounts deployed files to application
+    networks:
+      - default
+      - orion-1-nextcloudaio-kzhxfo
   nextcloud:
     image: nextcloud:${NC_VERSION:-latest}
     container_name: nextcloud
@@ -49,6 +52,12 @@ services:
       ALLOW_PRIVATE_IP_ADDRESS: true
       USE_UNAUTHORIZED_STORAGE: true
       JWT_SECRET: ClWl8WsSxsZeqCAmwFTFlCgflgAS1V4ZFC+D3Kswnxs
+    networks:
+      - default
+      - orion-1-nextcloudaio-kzhxfo
+      # Attach to the AIO network so hub.powerupsolutions.lk (AIO Nextcloud)
+      # can reach this server internally at http://onlyoffice:80.
+      # This replaces the manual `docker network connect` — survives redeploys.
 
 volumes:
   nc_data:
@@ -59,3 +68,6 @@ volumes:
     # Wipe the current version's data with: make wipe-nc
     name: nc_data_${NC_VERSION:-latest}
 
+networks:
+  orion-1-nextcloudaio-kzhxfo:
+    external: true
