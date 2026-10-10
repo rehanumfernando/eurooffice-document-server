@@ -55,9 +55,6 @@ services:
     networks:
       - default
       - orion-1-nextcloudaio-kzhxfo
-      # Attach to the AIO network so hub.powerupsolutions.lk (AIO Nextcloud)
-      # can reach this server internally at http://onlyoffice:80.
-      # This replaces the manual `docker network connect` — survives redeploys.
 
 volumes:
   nc_data:
